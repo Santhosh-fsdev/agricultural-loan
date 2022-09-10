@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setCpassword] = useState("");
   return (
     <div class="container-fluid">
       <div class="row">
@@ -10,7 +17,6 @@ export default function Signup() {
             <h4 class="text-center">Create a New Account</h4>
 
             <p class="text-success text-center"></p>
-            <form action="" method="post">
               <div class="form-group">
                 <label for="username">UserName</label>
 
@@ -20,7 +26,8 @@ export default function Signup() {
                   id="username"
                   placeholder="Enter User Name"
                   name="username"
-                  value=""
+                  value={username}
+                  onChange={(e)=>setUsername(e.target.value)}
                 />
 
                 <p class="err-msg"></p>
@@ -35,7 +42,8 @@ export default function Signup() {
                   id="mobileNumber"
                   placeholder="mobileNumber"
                   name="mobileNumber"
-                  value=""
+                  value={mobile}
+                  onChange={(e)=>setMobile(e.target.value)}
                 />
 
                 <p class="err-msg"></p>
@@ -50,7 +58,8 @@ export default function Signup() {
                   id="email"
                   placeholder="Enter email"
                   name="email"
-                  value=""
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
                 />
 
                 <p class="err-msg"></p>
@@ -65,6 +74,8 @@ export default function Signup() {
                   class="form-control"
                   placeholder="Enter password"
                   name="password"
+                  value={password}
+                  onChange={(e)=>setPassword(e.target.value)}
                 />
                 <p class="err-msg"></p>
               </div>
@@ -77,6 +88,8 @@ export default function Signup() {
                   class="form-control"
                   placeholder="Enter Confirm password"
                   name="confirmPassword"
+                  value={cpassword}
+                  onChange={(e)=>setCpassword(e.target.value)}
                 />
               </div>
 
@@ -85,10 +98,12 @@ export default function Signup() {
                 class="btn btn-danger"
                 id="submitButton"
                 name="submit"
+                onClick={()=>{
+                  window.location.href = "/";
+                }}
               >
                 Register Now
               </button>
-            </form>
           </div>
         </div>
         <div class="col-sm-4"></div>
